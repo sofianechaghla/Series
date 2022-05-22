@@ -6,7 +6,7 @@ use App\Repository\SerieRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=SerieRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\SerieRepository", repositoryClass=SerieRepository::class)
  */
 class Serie
 {
@@ -75,17 +75,12 @@ class Serie
     /**
      * @ORM\Column(type="datetime")
      */
-    private $dateCreate;
+    private $dateCreated;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $dateModified;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $overiew;
 
     public function getId(): ?int
     {
@@ -224,14 +219,14 @@ class Serie
         return $this;
     }
 
-    public function getDateCreate(): ?\DateTimeInterface
+    public function getDateCreated(): ?\DateTimeInterface
     {
-        return $this->dateCreate;
+        return $this->dateCreated;
     }
 
-    public function setDateCreate(\DateTimeInterface $dateCreate): self
+    public function setDateCreated(\DateTimeInterface $dateCreated): self
     {
-        $this->dateCreate = $dateCreate;
+        $this->dateCreated = $dateCreated;
 
         return $this;
     }
